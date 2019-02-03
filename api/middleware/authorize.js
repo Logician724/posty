@@ -29,6 +29,7 @@ module.exports = (req, res, next) => {
                         msg: 'Unauthorized user!'
                     });
                 }
+                req.user = user;
 
                 return next();
             });
