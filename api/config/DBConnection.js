@@ -9,7 +9,7 @@ module.exports = (logger) => {
         }).
         catch((err) => {
             if (err) {
-                logger.fatal(err);
+                throw err;
             }
         });
     // Init models

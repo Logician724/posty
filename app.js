@@ -52,4 +52,8 @@ app.use((_req, res) => {
     });
 });
 
+app.listen(config.PORT, () => {
+    logger.debug('Server running on port:', config.PORT);
+});
+
 module.exports = app;
