@@ -86,7 +86,7 @@ module.exports.login = (req, res, next) => {
 
                 delete existingUser.password;
                 const token = jwt.sign(
-                    existingUser.toJSON(),
+                    { id: existingUser._id },
                     config.SECRET,
                     { expiresIn: 43200 }
                 );
