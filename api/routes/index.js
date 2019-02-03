@@ -4,6 +4,7 @@ const { check } = require('express-validator/check');
 const userController = require('../controllers/user.controller');
 const postController = require('../controllers/post.controller');
 const validate = require('../middleware/validate');
+const authorize = require('../middleware/authorize');
 //--------- AUTH ENDPOINTS -------------- //
 
 router.post('/login',
@@ -13,7 +14,7 @@ router.post('/login',
             trim().
             not().
             isEmpty(),
-            check('password').exists().
+        check('password').exists().
             isString().
             isLength({ min: 8 }).
             trim().
@@ -46,8 +47,25 @@ router.post('/signup',
 
 //--------- POSTS ENDPOINTS --------------- //
 
-router.get('/posts', postController.getAllPosts);
-router.post('/posts', postController.addPost);
+router.get('/posts', authorize,
+    [
+        check('offset').exists().
+            isNumeric(),
+        check('limit').exists().
+            isNumeric()
+    ],
+    validate,
+    postController.getAllPosts);
+router.post('/posts', authorize,
+    [
+        check('text').exists().
+            isString().
+            trim().
+            not().
+            isEmpty()
+    ],
+    validate,
+    postController.addPost);
 
 //--------- END OF POST ENDPOINTS --------- //
 

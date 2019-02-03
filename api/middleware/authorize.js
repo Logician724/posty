@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
                 config.SECRET
             );
 
-            return User.find({ _id: payload.id }, (err, user) => {
+            return User.findOne({ _id: payload.id }, (err, user) => {
 
                 if (err) {
                     return next(err);
@@ -49,6 +49,4 @@ module.exports = (req, res, next) => {
             msg: 'No token!'
         });
     }
-
-    return next();
 };
