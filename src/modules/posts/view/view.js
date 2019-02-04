@@ -47,6 +47,11 @@ class PostView extends Component {
     };
 
     componentDidMount = () => {
+        const token = localStorage.getItem('posty_token');
+        if (!token) {
+            NotificationManager.error('You need to sign in to view posts');
+            this.props.history.push('/login');
+        }
         window.addEventListener('scroll', this.handleScroll);
         this.loadPosts();
     }

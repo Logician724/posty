@@ -89,7 +89,7 @@ class Signup extends Component {
                     </Typography>
                     <form className={classes.form} onSubmit={(event) => event.preventDefault()}>
                         <FormControl margin='normal' required fullWidth>
-                            <InputLabel htmlFor='username'>Username</InputLabel>
+                            <InputLabel htmlFor='username'>username</InputLabel>
                             <Input
                                 id='username'
                                 name='username'
@@ -103,7 +103,6 @@ class Signup extends Component {
                                 id='email'
                                 name='email'
                                 autoComplete='email'
-                                autoFocus
                                 onChange={this.handleInputChange} />
                         </FormControl>
                         <FormControl margin='normal' required fullWidth>

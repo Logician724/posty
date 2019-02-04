@@ -71,12 +71,12 @@ class App extends Component {
                 <Icon>local_library</Icon>Posty
                 </Link>
             </Typography>
-            <Button>
-              <Link to='/posts' className='no-decoration'>Posts</Link>
-            </Button>
             {
               this.state.isLoggedIn
                 ? <React.Fragment>
+                  <Button>
+                    <Link to='/posts' className='no-decoration'>Posts</Link>
+                  </Button>
                   <Button onClick={this.logOut}>Logout</Button>
                 </React.Fragment>
                 : <React.Fragment>

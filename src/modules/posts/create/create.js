@@ -34,6 +34,7 @@ class PostCreate extends Component {
     componentDidMount = () => {
         const token = localStorage.getItem('posty_token');
         if (!token) {
+            NotificationManager.error('You need to sign in to create posts');
             this.props.history.push('/login');
         }
     }
