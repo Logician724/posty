@@ -1,0 +1,30 @@
+.loginWrapper{
+    width: 100%;
+}
+
+
+.paper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2%;
+    padding: 10px;   
+}
+
+.submit{
+    margin-top: 7% !important;
+}
+
+
+@media only screen and (min-width:425px){
+    .loginWrapper{
+        display: flex;
+        justify-content: center;
+    }
+
+    .paper{
+        width: 400px;
+    }
+}
+
+
