@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -44,9 +43,9 @@ class Signup extends Component {
                 if (!res || !res.data) {
                     return NotificationManager.error('An unknown error occurred, please try again later.');
                 }
-                localStorage.setItem('posty_token', res.data.token);
+                localStorage.setItem('posty_token', res.data.data.token);
                 // eslint-disable-next-line dot-notation
-                axios.defaults.headers.common['authorization'] = res.data.token;
+                axios.defaults.headers.common['authorization'] = localStorage.getItem('posty_token');
 
                 NotificationManager.success('You have signed up successfully');
 
