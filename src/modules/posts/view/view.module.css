@@ -1,0 +1,21 @@
+.avatar{
+    background-color: #f44336;
+}
+
+.card{
+    width: 100%;
+    max-width: 500px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.postsWrapper{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.center{
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
