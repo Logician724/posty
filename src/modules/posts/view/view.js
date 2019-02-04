@@ -78,10 +78,6 @@ class PostView extends Component {
         const docHeight = Math.
             max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
         const windowBottom = windowHeight + window.pageYOffset;
-        // eslint-disable-next-line no-console
-        console.log(windowBottom);
-        // eslint-disable-next-line no-console
-        console.log(docHeight);
         // Checks that the page has scrolled to the bottom
         if (
             windowBottom >= docHeight - 100
