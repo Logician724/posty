@@ -13,7 +13,7 @@ require('./api/config/DBConnection')(logger);
 
 const app = express();
 const router = require('./api/routes/index');
-const publicDir = path.join(__dirname, '/public/');
+const publicDir = path.join(__dirname, '/build/');
 app.use(express.static(publicDir));
 
 
