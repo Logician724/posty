@@ -94,7 +94,7 @@ class App extends Component {
             <Route path='/' exact component={Landing} />
             <Route path='/login' component={Login} />
             <Route path='/signup' component={Signup} />
-            <Route path='/posts' component={PostView} />
+            <Route path='/posts' exact component={PostView} />
             <Route path='/posts/create' component={PostCreate} />
           </main>
           <NotificationContainer />

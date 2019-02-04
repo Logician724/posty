@@ -47,15 +47,10 @@ router.post('/signup',
 
 //--------- POSTS ENDPOINTS --------------- //
 
-router.get('/posts', authorize,
-    [
-        check('offset').exists().
-            isNumeric(),
-        check('limit').exists().
-            isNumeric()
-    ],
-    validate,
+router.get('/posts/:limit/:offset',
+    authorize,
     postController.getAllPosts);
+
 router.post('/posts', authorize,
     [
         check('text').exists().

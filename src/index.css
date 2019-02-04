@@ -17,3 +17,7 @@ body {
   padding: 2%;
   height:100%;
 }
+
+.d-flex{
+  display: flex;
+}

@@ -3,7 +3,7 @@ const Post = mongoose.model('Post');
 
 module.exports.addPost = (req, res, next) => {
     Post.create({
-        creator: req.user._id,
+        creator: req.user.username,
         text: req.body.text
     }, (createErr, post) => {
         if (createErr) {
@@ -20,8 +20,8 @@ module.exports.addPost = (req, res, next) => {
 
 module.exports.getAllPosts = (req, res, next) => {
     Post.paginate({}, {
-        limit: req.body.limit,
-        offset: req.body.offset
+        limit: parseInt(req.params.limit, 10),
+        offset: parseInt(req.params.offset, 10)
     }, (err, result) => {
         if (err) {
             return next(err);

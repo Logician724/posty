@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api', router);
 // -------------------- END OF Middleware Stack ---------//
 
-// direct all the Non-API requests to pass the public directory to client
+// Fallback all undefined endpoints to the home page
 app.get('/*', (_req, res) => res.sendFile('index.html', { root: publicDir }));
 // 500 internal server error handler
 // eslint-disable-next-line max-params

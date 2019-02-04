@@ -50,9 +50,9 @@ class Login extends Component {
                 if (!res || !res.data) {
                     return NotificationManager.error('An unknown error occurred, please try again later.');
                 }
-                localStorage.setItem('posty_token', res.data.token);
+                localStorage.setItem('posty_token', res.data.data.token);
                 // eslint-disable-next-line dot-notation
-                axios.defaults.headers.common['authorization'] = res.data.token;
+                axios.defaults.headers.common['authorization'] = localStorage.getItem('posty_token');
 
                 NotificationManager.success('You have signed in successfully');
 
@@ -63,10 +63,6 @@ class Login extends Component {
                     !err.response ||
                     !err.response.data ||
                     !err.response.data.errors) {
-                    // eslint-disable-next-line no-console
-                    console.log('error there');
-                    // eslint-disable-next-line no-console
-                    console.log(err);
                     if (err.response.status === 401) {
                         return NotificationManager.error(err.response.data.msg);
                     }
