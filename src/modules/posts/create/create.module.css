@@ -1,0 +1,45 @@
+.createWrapper{
+    width: 100%;
+}
+
+
+.paper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2%;
+    padding: 10px;   
+}
+
+.submit{
+    margin-top: 7% !important;
+}
+
+
+@media only screen and (min-width:425px){
+    .createWrapper{
+        display: flex;
+        justify-content: center;
+    }
+
+    .paper{
+        width: 400px;
+    }
+}
+
+.form{
+    display:flex;
+    flex-direction: column;
+}
+
+.center{
+    margin-right: auto !important;
+    margin-left: auto !important;
+    width: 100%;
+}
+
+.form{
+    width: 100%;
+    padding: 3%;
+    margin-top: 2%;
+}

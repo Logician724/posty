@@ -21,7 +21,8 @@ module.exports.addPost = (req, res, next) => {
 module.exports.getAllPosts = (req, res, next) => {
     Post.paginate({}, {
         limit: parseInt(req.params.limit, 10),
-        offset: parseInt(req.params.offset, 10)
+        offset: parseInt(req.params.offset, 10),
+        sort: { createdAt: -1 }
     }, (err, result) => {
         if (err) {
             return next(err);

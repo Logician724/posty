@@ -68,8 +68,10 @@ class App extends Component {
                 color='inherit'
                 noWrap
                 className='toolbarTitle'>
-                <Icon>local_library</Icon>Posty
-            </Typography>
+                <Link to='/' className='no-decoration color-black'>
+                  <Icon>local_library</Icon>Posty
+                </Link>
+              </Typography>
               <Button>
                 <Link to='/posts' className='no-decoration'>Posts</Link>
               </Button>

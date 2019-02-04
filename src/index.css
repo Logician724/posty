@@ -21,3 +21,29 @@ body {
 .d-flex{
   display: flex;
 }
+
+.half-page {
+  height: 65vh;
+}
+
+.w-100{
+  width: 100%;
+}
+
+.mt-auto{
+  margin-top: auto;
+}
+
+.landing-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2%;
+  padding: 10px;   
+}
+
+
+.center{
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
