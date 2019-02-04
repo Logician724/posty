@@ -60,6 +60,7 @@ class PostView extends Component {
         window.removeEventListener('scroll', this.handleScroll);
     }
 
+    // Infinite scrolling handler
     handleScroll = () => {
 
         // Stop execution o early if:
@@ -77,9 +78,13 @@ class PostView extends Component {
         const docHeight = Math.
             max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
         const windowBottom = windowHeight + window.pageYOffset;
+        // eslint-disable-next-line no-console
+        console.log(windowBottom);
+        // eslint-disable-next-line no-console
+        console.log(docHeight);
         // Checks that the page has scrolled to the bottom
         if (
-            windowBottom >= docHeight
+            windowBottom >= docHeight - 100
         ) {
             this.loadPosts();
         }
@@ -88,7 +93,7 @@ class PostView extends Component {
     loadPosts = () => {
         const { history } = this.props;
         const { state } = this;
-        this.setState({ isLoading: false }, () => {
+        this.setState({ isLoading: true }, () => {
             axios.get(`/posts/${limit}/${state.offset}`)
                 .then((res) => {
 
