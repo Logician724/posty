@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, withRouter } from 'react-router-dom';
+import { Route, Link, withRouter, Switch } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -39,6 +39,7 @@ class App extends Component {
   }
 
   componentDidUpdate = (prevProps) => {
+
     if (this.props.location !== prevProps.location) {
       const token = localStorage.getItem('posty_token');
       if (token) {
@@ -57,51 +58,50 @@ class App extends Component {
 
   render() {
     return (
-
-      <Router>
-        <React.Fragment>
-          <CssBaseline />
-          <AppBar position='static' color='default'>
-            <Toolbar>
-              <Typography
-                variant='h6'
-                color='inherit'
-                noWrap
-                className='toolbarTitle'>
-                <Link to='/' className='no-decoration color-black'>
-                  <Icon>local_library</Icon>Posty
+      <React.Fragment>
+        <CssBaseline />
+        <AppBar position='static' color='default'>
+          <Toolbar>
+            <Typography
+              variant='h6'
+              color='inherit'
+              noWrap
+              className='toolbarTitle'>
+              <Link to='/' className='no-decoration color-black'>
+                <Icon>local_library</Icon>Posty
                 </Link>
-              </Typography>
-              <Button>
-                <Link to='/posts' className='no-decoration'>Posts</Link>
-              </Button>
-              {
-                this.state.isLoggedIn
-                  ? <React.Fragment>
-                    <Button onClick={this.logOut}>Logout</Button>
-                  </React.Fragment>
-                  : <React.Fragment>
-                    <Button>
-                      <Link to='/login' className='no-decoration'>Login</Link>
-                    </Button>
-                    <Button>
-                      <Link to='/signup' className='no-decoration'>Signup</Link>
-                    </Button>
-                  </React.Fragment>
-              }
+            </Typography>
+            <Button>
+              <Link to='/posts' className='no-decoration'>Posts</Link>
+            </Button>
+            {
+              this.state.isLoggedIn
+                ? <React.Fragment>
+                  <Button onClick={this.logOut}>Logout</Button>
+                </React.Fragment>
+                : <React.Fragment>
+                  <Button>
+                    <Link to='/login' className='no-decoration'>Login</Link>
+                  </Button>
+                  <Button>
+                    <Link to='/signup' className='no-decoration'>Signup</Link>
+                  </Button>
+                </React.Fragment>
+            }
 
-            </Toolbar>
-          </AppBar>
-          <main className='main'>
+          </Toolbar>
+        </AppBar>
+        <main className='main'>
+          <Switch>
             <Route path='/' exact component={Landing} />
             <Route path='/login' component={Login} />
             <Route path='/signup' component={Signup} />
             <Route path='/posts' exact component={PostView} />
             <Route path='/posts/create' component={PostCreate} />
-          </main>
-          <NotificationContainer />
-        </React.Fragment>
-      </Router >
+          </Switch>
+        </main>
+        <NotificationContainer />
+      </React.Fragment>
     );
   }
 }

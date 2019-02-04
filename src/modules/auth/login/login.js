@@ -38,6 +38,7 @@ class Login extends Component {
     componentDidMount = () => {
         const token = localStorage.getItem('posty_token');
         if (token) {
+            NotificationManager.warning('You are already signed in');
             this.props.history.push('/posts');
         }
     }
@@ -63,7 +64,8 @@ class Login extends Component {
                     !err.response ||
                     !err.response.data ||
                     !err.response.data.errors) {
-                    if (err.response.status === 401) {
+
+                    if (err.response && err.response.status === 401) {
                         return NotificationManager.error(err.response.data.msg);
                     }
 

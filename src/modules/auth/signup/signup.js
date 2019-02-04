@@ -56,7 +56,7 @@ class Signup extends Component {
                     !err.response ||
                     !err.response.data ||
                     !err.response.data.err) {
-                    if (err.response.status === 401) {
+                    if (err.response && err.response.status === 401) {
                         return NotificationManager.error(err.response.data.msg);
                     }
 
